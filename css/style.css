@@ -439,6 +439,138 @@ main {
   margin-top: 40px;
 }
 
+/* experiences */
+.experiences-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.experience-item {
+  background-color: var(--bg-alt);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.experience-item:hover {
+  transform: translateY(-7px);
+}
+
+.experience-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.experience-image {
+  flex: 0 0 auto;
+  width: 100px;
+  /* Smaller image size */
+}
+
+.experience-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.experience-details {
+  flex: 1 1 auto;
+}
+
+.experience-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.experience-description {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.experience-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.experience-link:hover {
+  background-color: var(--clr-primary);
+  color: var(--bg);
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .experience-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .experience-image {
+    width: 80px;
+    margin-bottom: 1rem;
+  }
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.experience-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.experience-header .link--icon {
+  font-size: 1.2rem;
+  color: var(--clr-primary);
+  transition: transform 0.3s;
+}
+
+.experience-header .link--icon:hover {
+  transform: translateY(-3px);
+}
+
+.experience-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  list-style-type: none;
+  padding: 0;
+}
+
+.experience-stack-item {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .experience-stack {
+    justify-content: center;
+  }
+}
+
+
 /* skills */
 .skills-list {
   max-width: 450px;
