@@ -8,7 +8,7 @@
   font-family: inherit;
   font-size: inherit;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shad          box-shadow: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -573,5 +573,3 @@ main {
   /* disable scroll up on mobile */
   .scroll-container {
     display: none;
-  }
-}
