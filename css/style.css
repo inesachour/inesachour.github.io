@@ -448,17 +448,25 @@ main {
   margin: 0 auto;
 }
 
-.experience-item {
+.experience {
   background-color: var(--bg-alt);
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.3s;
+  -webkit-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
-.experience-item:hover {
+.experience:hover {
+  -webkit-transform: translateY(-7px);
+  -ms-transform: translateY(-7px);
   transform: translateY(-7px);
 }
+
 
 .experience-content {
   display: flex;
