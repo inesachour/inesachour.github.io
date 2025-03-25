@@ -467,7 +467,6 @@ main {
   transform: translateY(-7px);
 }
 
-
 .experience-content {
   display: flex;
   flex-direction: row;
@@ -573,6 +572,44 @@ main {
 
 /* For mobile responsiveness */
 @media (max-width: 768px) {
+  .experience-stack {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-image {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .experience-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-title {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  .experience-description {
+    text-align: center;
+  }
+
   .experience-stack {
     justify-content: center;
   }
