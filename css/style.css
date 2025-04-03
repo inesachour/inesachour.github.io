@@ -502,6 +502,19 @@ main {
   opacity: 0.8;
 }
 
+.experience-role {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--clr-fg-alt);
+}
+
+.experience-date {
+  font-size: 0.9rem;
+  color: var(--clr-fg-alt);
+  margin-bottom: 1rem;
+}
+
+
 .experience-link {
   display: inline-block;
   padding: 0.5rem 1rem;
