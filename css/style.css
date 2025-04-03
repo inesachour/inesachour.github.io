@@ -724,6 +724,10 @@ main {
   margin-top: 10px;
 }
 
+.contact-cvbtn {
+  margin-top: 20px;
+}
+
 .contact-socials {
   margin-top: 60px;
   display: -webkit-box;
@@ -740,7 +744,7 @@ main {
 }
 
 .footer-link {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--clr-fg);
 }
