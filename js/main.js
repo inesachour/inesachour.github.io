@@ -1,67 +1,113 @@
+// DOM Elements
+const body = document.body;
+const btnTheme = document.querySelector('.theme-toggle');
+const btnHamburger = document.querySelector('.nav-hamburger');
+const navList = document.querySelector('.nav-list');
+const btnScrollTop = document.querySelector('.scroll-top');
+const themeIcon = btnTheme ? btnTheme.querySelector('i') : null;
+const hamburgerIcon = btnHamburger ? btnHamburger.querySelector('i') : null;
 
-// call elements from html
-const body = document.body
-const btnTheme = document.querySelector('.fa-moon')
-const btnHamburger = document.querySelector('.fa-bars')
+// Theme Handling
+const themeKey = 'portfolio-theme';
+const getSavedTheme = () => localStorage.getItem(themeKey);
+const saveTheme = (theme) => localStorage.setItem(themeKey, theme);
 
-// theme change toggle
-const addThemeClass = (bodyClass, btnClass) => {
-	body.classList.add(bodyClass)
-	btnTheme.classList.add(btnClass)
-}
-
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
-
-addThemeClass(getBodyTheme, getBtnTheme)
-
-const isDark = () => body.classList.contains('dark')
-
-const setTheme = (bodyClass, btnClass) => {
-	body.classList.remove(localStorage.getItem('portfolio-theme'))
-	btnTheme.classList.remove(localStorage.getItem('portfolio-btn-theme'))
-
-	addThemeClass(bodyClass, btnClass)
-
-	localStorage.setItem('portfolio-theme', bodyClass)
-	localStorage.setItem('portfolio-btn-theme', btnClass)
-}
-
-const toggleTheme = () =>
-	isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
-
-btnTheme.addEventListener('click', toggleTheme)
-
-
-// responsive menu toggle
-const displayList = () => {
-	const navUl = document.querySelector('.nav-list')
-
-	if (btnHamburger.classList.contains('fa-bars')) {
-		btnHamburger.classList.remove('fa-bars')
-		btnHamburger.classList.add('fa-times')
-		navUl.classList.add('display-nav-list')
+const applyTheme = (theme) => {
+	if (theme === 'light') {
+		body.classList.add('light');
+		body.classList.remove('dark');
+		if (themeIcon) {
+			themeIcon.classList.remove('fa-sun');
+			themeIcon.classList.add('fa-moon');
+		}
 	} else {
-		btnHamburger.classList.remove('fa-times')
-		btnHamburger.classList.add('fa-bars')
-		navUl.classList.remove('display-nav-list')
+		body.classList.add('dark');
+		body.classList.remove('light');
+		if (themeIcon) {
+			themeIcon.classList.remove('fa-moon');
+			themeIcon.classList.add('fa-sun');
+		}
 	}
+};
+
+const toggleTheme = () => {
+	const currentTheme = body.classList.contains('light') ? 'light' : 'dark';
+	const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+	applyTheme(newTheme);
+	saveTheme(newTheme);
+};
+
+// Initialize Theme
+const savedTheme = getSavedTheme();
+if (savedTheme) {
+	applyTheme(savedTheme);
+} else {
+	// Default to dark
+	applyTheme('dark');
 }
-btnHamburger.addEventListener('click', displayList)
 
+if (btnTheme) {
+	btnTheme.addEventListener('click', toggleTheme);
+}
 
-// scroll up
-const scrollUp = () => {
-	const btnScrollTop = document.querySelector('.scroll-top')
+// Mobile Menu
+const toggleMenu = () => {
+	navList.classList.toggle('show');
+	if (hamburgerIcon) {
+		if (navList.classList.contains('show')) {
+			hamburgerIcon.classList.remove('fa-bars');
+			hamburgerIcon.classList.add('fa-times');
+		} else {
+			hamburgerIcon.classList.remove('fa-times');
+			hamburgerIcon.classList.add('fa-bars');
+		}
+	}
+};
 
-	if (
-		body.scrollTop > 500 ||
-		document.documentElement.scrollTop > 500
-	) {
-		btnScrollTop.style.display = 'block'
+if (btnHamburger) {
+	btnHamburger.addEventListener('click', toggleMenu);
+}
+
+// Close menu when clicking a link
+document.querySelectorAll('.link--nav').forEach(link => {
+	link.addEventListener('click', () => {
+		navList.classList.remove('show');
+		if (hamburgerIcon) {
+			hamburgerIcon.classList.remove('fa-times');
+			hamburgerIcon.classList.add('fa-bars');
+		}
+	});
+});
+
+// Scroll to Top
+const handleScroll = () => {
+	if (window.scrollY > 300) {
+		btnScrollTop.classList.add('show');
 	} else {
-		btnScrollTop.style.display = 'none'
+		btnScrollTop.classList.remove('show');
 	}
-}
-document.addEventListener('scroll', scrollUp)
+};
+
+window.addEventListener('scroll', handleScroll);
+
+// Scroll Reveal Animation (Simple Intersection Observer)
+const observerOptions = {
+	root: null,
+	rootMargin: '0px',
+	threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('animate-in');
+			observer.unobserve(entry.target);
+		}
+	});
+}, observerOptions);
+
+// Add animation classes to elements you want to animate
+// You can add a CSS class .animate-in { opacity: 1; transform: translateY(0); }
+// and initial state in CSS for these elements.
+// For now, we'll just leave this structure ready for future enhancements.
 
