@@ -114,6 +114,17 @@ button {
   margin-bottom: 4rem;
 }
 
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 .section-subtitle {
   color: var(--text-muted);
   font-size: 1.1rem;
@@ -255,6 +266,7 @@ body.light .header {
   line-height: 1.1;
   margin-bottom: 1rem;
   background: linear-gradient(to right, var(--text-main), var(--text-muted));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -393,7 +405,8 @@ body.light .header {
 }
 
 body.light .project-card {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .project-card:hover {
@@ -515,6 +528,10 @@ body.light .project-card {
   background: var(--bg-card-hover);
 }
 
+body.light .timeline::before {
+  background: rgba(0, 0, 0, 0.15);
+}
+
 .timeline-item {
   margin-bottom: 3rem;
   position: relative;
@@ -562,7 +579,8 @@ body.light .project-card {
 }
 
 body.light .timeline-content {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-content:hover {
@@ -642,7 +660,8 @@ body.light .timeline-content {
 }
 
 body.light .article-card {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .article-card:hover {
@@ -738,7 +757,8 @@ body.light .article-card {
 }
 
 body.light .skill-item {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .skill-item:hover {
@@ -945,9 +965,11 @@ body.light .footer {
   .timeline-item:nth-child(odd) .timeline-tags {
     justify-content: flex-start;
   }
-}
 
-@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
   .hero-name {
     font-size: 2.5rem;
   }
@@ -955,8 +977,28 @@ body.light .footer {
   .hero-role {
     font-size: 1.5rem;
   }
+}
 
-  .section-title {
+@media (max-width: 480px) {
+  .hero-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-name {
     font-size: 2rem;
+  }
+
+  .hero-role {
+    font-size: 1.25rem;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .projects-grid,
+  .articles-grid {
+    grid-template-columns: 1fr;
   }
 }
