@@ -79,6 +79,12 @@ document.querySelectorAll('.link--nav').forEach(link => {
 	});
 });
 
+// Footer year
+const yearEl = document.getElementById('year');
+if (yearEl) {
+	yearEl.textContent = new Date().getFullYear();
+}
+
 // Scroll to Top
 const handleScroll = () => {
 	if (window.scrollY > 300) {
@@ -102,12 +108,30 @@ const observer = new IntersectionObserver((entries, observer) => {
 		if (entry.isIntersecting) {
 			entry.target.classList.add('animate-in');
 			observer.unobserve(entry.target);
+			// Drop the reveal classes afterwards so card hover transitions work normally
+			setTimeout(() => entry.target.classList.remove('reveal', 'animate-in'), 700);
 		}
 	});
 }, observerOptions);
 
-// Add animation classes to elements you want to animate
-// You can add a CSS class .animate-in { opacity: 1; transform: translateY(0); }
-// and initial state in CSS for these elements.
-// For now, we'll just leave this structure ready for future enhancements.
+document.querySelectorAll(
+	'.section-header, .about-content, .project-card, .timeline-item, .article-card, .skill-category, .contact-container'
+).forEach(el => {
+	el.classList.add('reveal');
+	observer.observe(el);
+});
+
+// Highlight the nav link of the section in view
+const navLinks = document.querySelectorAll('.link--nav');
+const sectionObserver = new IntersectionObserver(entries => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			navLinks.forEach(link => {
+				link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+			});
+		}
+	});
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
 

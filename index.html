@@ -4,11 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ines Achour - Mobile Developer & Software Engineer</title>
+  <title>Ines Achour - Software Engineer Specialized in Mobile</title>
   <!-- Meta tags -->
-  <meta name="description" content="Junior Frontend Developer and Video Editor from Uzbekistan 18 y.o.">
+  <meta name="description" content="Ines Achour is a software engineer specialized in mobile, working with Flutter, Bloc, GetX and clean architecture. Open to 100% remote (preferred) or hybrid roles.">
   <meta name="author" content="Ines Achour">
-  <meta name="keywords" content="Ines Achour, Ines, Achour, Mobile Developer, Flutter, Software Engineer">
+  <meta name="keywords" content="Ines Achour, Mobile Developer, Flutter, Dart, Software Engineer, Remote">
+  <link rel="canonical" href="https://inesachour.github.io/">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inesachour.github.io/">
+  <meta property="og:title" content="Ines Achour - Software Engineer Specialized in Mobile">
+  <meta property="og:description" content="Software engineer specialized in mobile, working with Flutter. Production apps, published pub.dev packages, open to 100% remote or hybrid roles.">
+  <meta property="og:image" content="https://inesachour.github.io/images/ines.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ines Achour - Software Engineer Specialized in Mobile">
+  <meta name="twitter:description" content="Software engineer specialized in mobile, working with Flutter. Production apps, published pub.dev packages, open to 100% remote or hybrid roles.">
+  <meta name="twitter:image" content="https://inesachour.github.io/images/ines.png">
   <meta name="theme-color" content="#2978b5">
   <meta name="robots" content="index,follow">
   <link rel="me" href="https://github.com/inesachour" type="text/html">
@@ -25,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link rel="preload" fetchpriority="high" as="image" href="images/ines.png" type="image/jpg">
+  <link rel="preload" fetchpriority="high" as="image" href="images/ines.png" type="image/png">
   <!-- CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- CSS File -->
@@ -43,6 +54,9 @@
       <nav class="nav center">
         <ul class="nav-list center">
           <li class="nav-list-item">
+            <a class="link link--nav" href="#about">About</a>
+          </li>
+          <li class="nav-list-item">
             <a class="link link--nav" href="#projects">Projects</a>
           </li>
           <li class="nav-list-item">
@@ -50,6 +64,9 @@
           </li>
           <li class="nav-list-item">
             <a class="link link--nav" href="#skills">Skills</a>
+          </li>
+          <li class="nav-list-item">
+            <a class="link link--nav" href="#articles">Articles</a>
           </li>
           <li class="nav-list-item">
             <a class="link link--nav" href="#contact">Contact</a>
@@ -60,6 +77,10 @@
           <!-- Theme toggle -->
           <button type="button" aria-label="toggle theme" class="btn btn--icon theme-toggle">
             <i aria-hidden="true" id="btn-theme" class="fas fa-sun"></i>
+          </button>
+          <!-- Mobile menu toggle -->
+          <button type="button" aria-label="toggle menu" class="btn btn--icon nav-hamburger">
+            <i aria-hidden="true" class="fas fa-bars"></i>
           </button>
         </div>
       </nav>
@@ -74,10 +95,10 @@
         <div class="hero-text">
           <p class="hero-greeting">Hello, I'm</p>
           <h1 class="hero-name">Ines Achour</h1>
-          <h2 class="hero-role">Mobile Developer & <br> Software Engineer</h2>
+          <h2 class="hero-role">Software Engineer <br> Specialized in Mobile</h2>
           <p class="hero-desc">
-            Crafting exceptional mobile experiences with Flutter and modern technologies.
-            Passionate about clean code, intuitive UI, and solving complex problems.
+            I've been working with Flutter to build production mobile apps, using Bloc and clean architecture,
+            and I publish open-source packages on pub.dev.
           </p>
           <div class="hero-btns">
             <a href="#contact" class="btn btn--primary">Contact Me</a>
@@ -105,18 +126,40 @@
       </div>
     </section>
 
+    <!-- About section -->
+    <section id="about" class="section about">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          I'm a software engineer specialized in mobile development. I've been working with Flutter
+          for the past few years, shipping features, fixing bugs and building new apps from scratch for real users,
+          in healthcare at Docic and in e-government at elBaladiya.
+        </p>
+        <p>
+          I work with Bloc and GetX, structure my code with clean architecture, and I'm comfortable going native when
+          Flutter isn't enough (Android with Kotlin and Java, or C++ through OpenCV). I also write about Flutter
+          internals and share reusable packages on pub.dev.
+        </p>
+        <p>
+          I'm looking for 100% remote roles, though I'm open to hybrid.
+        </p>
+      </div>
+    </section>
+
     <!-- Projects section -->
     <section id="projects" class="section projects">
       <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">A selection of my recent work</p>
+        <p class="section-subtitle">Mobile packages and SDKs I've built</p>
       </div>
 
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-img-wrapper">
-            <img src="images/projects/awesome-datetime-picker.png" alt="Awesome DateTime Picker" class="project-image">
+            <img src="images/projects/awesome-datetime-picker.png" alt="Awesome DateTime Picker" class="project-image" loading="lazy">
             <div class="project-links">
               <a href="https://github.com/inesachour/awesome_datetime_picker" aria-label="source code" class="icon-link"
                 target="_blank" rel="noopener noreferrer">
@@ -141,7 +184,7 @@
 
         <div class="project-card">
           <div class="project-img-wrapper">
-            <img src="images/projects/awesome-calendart.png" alt="Awesome CalenDart" class="project-image">
+            <img src="images/projects/awesome-calendart.png" alt="Awesome CalenDart" class="project-image" loading="lazy">
             <div class="project-links">
               <a href="https://github.com/inesachour/awesome_calendart" aria-label="source code" class="icon-link"
                 target="_blank" rel="noopener noreferrer">
@@ -166,7 +209,7 @@
 
         <div class="project-card">
           <div class="project-img-wrapper">
-            <img src="images/projects/docic-scanner.png" alt="Docic Medical Documents Scanner" class="project-image">
+            <img src="images/projects/docic-scanner.png" alt="Docic Medical Documents Scanner" class="project-image" loading="lazy">
             <div class="project-links">
               <a href="https://github.com/inesachour/docic_scanner_sdk_upgraded" aria-label="source code"
                 class="icon-link" target="_blank" rel="noopener noreferrer">
@@ -186,9 +229,14 @@
           </div>
         </div>
 
+      </div>
+
+      <h3 class="projects-subheading">Other Work</h3>
+      <div class="projects-grid">
+
         <div class="project-card">
           <div class="project-img-wrapper">
-            <img src="images/projects/fake-arabic-reviews.png" alt="Fake Arabic Reviews" class="project-image">
+            <img src="images/projects/fake-arabic-reviews.png" alt="Fake Arabic Reviews" class="project-image" loading="lazy">
             <div class="project-links">
               <a href="https://drive.google.com/file/d/1HZZf4yOXZ7BUSEK20mH5P99jXjYuQ12V/view?usp=sharing"
                 aria-label="live preview" class="icon-link" target="_blank" rel="noopener noreferrer">
@@ -210,7 +258,7 @@
 
         <div class="project-card">
           <div class="project-img-wrapper">
-            <img src="images/projects/bigdata.png" alt="Big Data Project" class="project-image">
+            <img src="images/projects/bigdata.png" alt="Big Data Project" class="project-image" loading="lazy">
             <div class="project-links">
               <a href="https://github.com/inesachour/BigData_Project" aria-label="source code" class="icon-link"
                 target="_blank" rel="noopener noreferrer">
@@ -251,7 +299,7 @@
             </div>
             <div class="timeline-company">
               <img src="images/experiences/docic.png" alt="Docic" class="company-logo">
-              <a href="https://docic.net" target="_blank" class="company-name">Docic</a>
+              <a href="https://docic.net" target="_blank" rel="noopener noreferrer" class="company-name">Docic</a>
             </div>
             <p class="timeline-desc">
               Contributed to the Docic Patient mobile app by adding new features, improving functionality, and fixing
@@ -274,7 +322,7 @@
             </div>
             <div class="timeline-company">
               <img src="images/experiences/elbaladiya.svg" alt="elBaladiya" class="company-logo">
-              <a href="https://elbaladiya.tn" target="_blank" class="company-name">elBaladiya</a>
+              <a href="https://elbaladiya.tn" target="_blank" rel="noopener noreferrer" class="company-name">elBaladiya</a>
             </div>
             <p class="timeline-desc">
               Contributed to various phases of the elBaladiya.tn mobile application, focusing on implementing new
@@ -299,7 +347,7 @@
       <div class="articles-grid">
         <div class="article-card">
           <div class="article-img-wrapper">
-            <img src="images/articles/isolates.jpg" alt="Flutter Isolates" class="article-image">
+            <img src="images/articles/isolates.jpg" alt="Flutter Isolates" class="article-image" loading="lazy">
           </div>
           <div class="article-content">
             <h3>Flutter Isolates: Because Your UI Deserves a Break Too</h3>
@@ -312,7 +360,7 @@
 
         <div class="article-card">
           <div class="article-img-wrapper">
-            <img src="images/articles/custom-upgrader.png" alt="Custom Upgrader" class="article-image">
+            <img src="images/articles/custom-upgrader.png" alt="Custom Upgrader" class="article-image" loading="lazy">
           </div>
           <div class="article-content">
             <h3>🛠️ Custom Upgrader Alert in Flutter — Because UX Matters</h3>
@@ -336,23 +384,39 @@
 
       <div class="skills-container">
         <div class="skill-category">
-          <h3>Mobile & Core</h3>
+          <h3>Mobile</h3>
           <div class="skill-list">
-            <div class="skill-item"><i class="fab fa-android"></i> Mobile Dev</div>
             <div class="skill-item"><i class="fas fa-mobile-alt"></i> Flutter</div>
+            <div class="skill-item"><i class="fas fa-code"></i> Dart</div>
             <div class="skill-item"><i class="fab fa-android"></i> Android</div>
-            <div class="skill-item"><i class="fab fa-java"></i> Java</div>
             <div class="skill-item"><i class="fas fa-code"></i> Kotlin</div>
+            <div class="skill-item"><i class="fab fa-java"></i> Java</div>
           </div>
         </div>
 
         <div class="skill-category">
-          <h3>Tools & Others</h3>
+          <h3>Architecture & State</h3>
           <div class="skill-list">
-            <div class="skill-item"><i class="fab fa-git-alt"></i> Git/Github</div>
-            <div class="skill-item"><i class="fab fa-figma"></i> Figma</div>
-            <div class="skill-item"><i class="fas fa-cogs"></i> C++</div>
+            <div class="skill-item"><i class="fas fa-cubes"></i> Bloc / Cubit</div>
+            <div class="skill-item"><i class="fas fa-bolt"></i> GetX</div>
+            <div class="skill-item"><i class="fas fa-layer-group"></i> Clean Architecture</div>
+            <div class="skill-item"><i class="fas fa-sitemap"></i> MVC</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Backend & Native</h3>
+          <div class="skill-list">
             <div class="skill-item"><i class="fas fa-database"></i> Firebase</div>
+            <div class="skill-item"><i class="fas fa-microchip"></i> C++ / OpenCV</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <div class="skill-list">
+            <div class="skill-item"><i class="fab fa-git-alt"></i> Git / GitHub</div>
+            <div class="skill-item"><i class="fab fa-figma"></i> Figma</div>
           </div>
         </div>
       </div>
@@ -362,9 +426,9 @@
     <section class="section contact" id="contact">
       <div class="contact-container">
         <h2 class="section-title">Get In Touch</h2>
-        <p class="contact-text">I'm currently open to new opportunities. Whether you have a question or just want to say
-          hi, I'll try my best to get back to you!</p>
-        <a href="mailto:inesachour1708@gmail.com" class="btn btn--primary btn--large">Say Hello</a>
+        <p class="contact-text">I'm currently open to new opportunities, preferably 100% remote, or hybrid. Whether you
+          have a role in mind, a question, or just want to say hi, I'll get back to you!</p>
+        <a href="mailto:inesachour1708@gmail.com?subject=Job%20opportunity" class="btn btn--primary btn--large"><i aria-hidden="true" class="fas fa-envelope"></i> Let's Work Together</a>
 
         <div class="contact-socials">
           <a href="https://www.linkedin.com/in/achour-ines/" aria-label="linkedin" class="social-icon" target="_blank">
@@ -384,7 +448,7 @@
   <!-- Footer section -->
   <footer class="footer">
     <p class="footer-text">
-      &copy; 2024 Ines Achour. Built with <i class="fas fa-heart"></i> and Flutter passion.
+      &copy; <span id="year">2026</span> Ines Achour. Built with <i class="fas fa-heart"></i> and Flutter passion.
     </p>
     <p class="footer-subtext">Original template by Jahongir Murodboev</p>
   </footer>
@@ -397,7 +461,7 @@
   </div>
 
   <!-- Script file -->
-  <script src="js/main.js" defer async></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

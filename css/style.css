@@ -3,8 +3,6 @@
   Author: Ines Achour
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
-
 :root {
   /* Dark Theme (Default) */
   --bg-body: #0f172a;
@@ -33,6 +31,9 @@
   --radius-full: 9999px;
 
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Background behind screenshots, same in both themes so mockups stay readable */
+  --stage: linear-gradient(135deg, #e0f2fe 0%, #eef2ff 55%, #f5f3ff 100%);
 }
 
 /* Light Theme Variables */
@@ -215,7 +216,7 @@ body.light .header {
   color: var(--primary);
 }
 
-.nav-hamburger {
+.btn.nav-hamburger {
   display: none;
 }
 
@@ -226,6 +227,18 @@ body.light .header {
   /* Account for fixed header */
   position: relative;
   overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--text-muted) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.12;
+  mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 70%);
 }
 
 .hero::before {
@@ -386,7 +399,27 @@ body.light .header {
   }
 }
 
+/* About Section */
+.about-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
 /* Projects Section */
+.projects-subheading {
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin: 4rem 0 2rem;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -418,8 +451,8 @@ body.light .project-card {
 .project-img-wrapper {
   position: relative;
   overflow: hidden;
-  height: 200px;
-  background-color: var(--bg-card-hover);
+  aspect-ratio: 850 / 580;
+  background: var(--stage);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -429,11 +462,12 @@ body.light .project-card {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
   transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .project-links {
@@ -670,19 +704,21 @@ body.light .article-card {
 }
 
 .article-img-wrapper {
-  height: 180px;
+  aspect-ratio: 2.1 / 1;
   overflow: hidden;
+  background: var(--stage);
 }
 
 .article-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  mix-blend-mode: multiply;
   transition: transform 0.5s ease;
 }
 
 .article-card:hover .article-image {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .article-content {
@@ -930,8 +966,8 @@ body.light .footer {
     right: 0;
   }
 
-  .nav-hamburger {
-    display: block;
+  .btn.nav-hamburger {
+    display: inline-flex;
     z-index: 1001;
   }
 
@@ -1001,4 +1037,55 @@ body.light .footer {
   .articles-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.animate-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-img {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Keyboard focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Section title accent */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin: 0.6rem auto 0;
+  border-radius: var(--radius-full);
+  background: var(--gradient-main);
+}
+
+/* Offset anchored sections for the fixed header */
+section[id] {
+  scroll-margin-top: 4rem;
 }
